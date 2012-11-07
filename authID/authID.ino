@@ -159,8 +159,25 @@ void decode() {
               char c = client.read();
               if(c=='<')
                 startRead=true;
-              if(startRead==true)
+              if(startRead==true){
                 Serial.print(c);
+                if(c=='U')
+                {
+                  startRead==false;
+                  tone(6,200,600);
+                  delay(200); 
+                  tone(6,200,600);
+                  delay(200);                  
+                  tone(6,200,600);
+                  delay(200); 
+                }                
+                else if (c=='A')
+                {
+                  startRead==false;
+                  tone(6,200,200);
+                  delay(200);
+                }
+              }
               if(c=='>') 
                 startRead=false;
             }
